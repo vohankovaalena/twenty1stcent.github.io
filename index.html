@@ -44,13 +44,13 @@
     height: 68px;
   }
   .nav-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--navy);
+    display: flex; align-items: center;
     text-decoration: none;
-    max-width: 200px;
-    line-height: 1.2;
+  }
+  .nav-logo img {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
   }
   .nav-links {
     display: flex; gap: 2rem; list-style: none; align-items: center;
@@ -398,6 +398,7 @@
     color: var(--white);
   }
   #credibility h2 { color: var(--white); }
+  #credibility .lead { color: var(--white); }
   .cred-grid {
     display: grid; grid-template-columns: 1fr 1fr 1fr;
     gap: 2rem; margin-top: 3.5rem;
@@ -452,9 +453,12 @@
     flex-wrap: wrap; gap: 1.5rem;
   }
   .footer-brand {
-    font-family: 'Playfair Display', serif;
-    font-size: 1rem; color: rgba(255,255,255,0.8);
-    max-width: 220px; line-height: 1.3;
+    display: flex; align-items: center;
+  }
+  .footer-brand img {
+    height: 35px;
+    width: auto;
+    object-fit: contain;
   }
   .footer-links { display: flex; gap: 1.8rem; flex-wrap: wrap; }
   .footer-links a {
@@ -495,7 +499,9 @@
 
 <!-- NAV -->
 <nav>
-  <a class="nav-logo" href="#">Twenty First Century Solutions</a>
+  <a class="nav-logo" href="#">
+    <img src="logo.png" alt="Twenty First Century Solutions logo">
+  </a>
   <ul class="nav-links">
     <li><a href="#pillars">How We Work</a></li>
     <li><a href="#communa">Communa</a></li>
@@ -509,7 +515,7 @@
 <section class="hero">
   <div class="hero-grid">
     <div class="hero-left">
-      <span class="hero-label">The Sector's Problem-Solving Partner</span>
+      <span class="hero-label">The Social Sector's Problem-Solving Partner</span>
       <h1>One place for the social sector's hardest problems.</h1>
       <p class="hero-sub">From participatory grant-making to organisational transformation, from scoping a new idea to delivering a complete programme: Twenty First Century Solutions is where funders, commissioners, and community organisations come when they need something done properly.</p>
       <div class="hero-ctas">
@@ -753,7 +759,9 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-brand">Twenty First Century Solutions</div>
+  <div class="footer-brand">
+    <img src="logo_white.png" alt="Twenty First Century Solutions logo">
+  </div>
   <div class="footer-links">
     <a href="#pillars">How We Work</a>
     <a href="#communa">Communa</a>
