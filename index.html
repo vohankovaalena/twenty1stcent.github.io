@@ -8,6 +8,56 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <style>
+
+  /* AUDIENCE ENTRY POINTS */
+.aep-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 1rem; margin: 2.5rem 0 0;
+}
+.aep-btn {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 10px; padding: 1.75rem 2rem;
+  text-align: left; cursor: pointer;
+  display: flex; flex-direction: column; gap: 0.4rem;
+  transition: box-shadow 0.2s, transform 0.15s;
+  font-family: 'DM Sans', sans-serif;
+}
+.aep-btn:hover { box-shadow: 0 8px 32px rgba(44,62,80,0.1); transform: translateY(-2px); }
+.aep-btn-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--navy); }
+.aep-btn-sub { font-size: 1rem; color: var(--text-muted); line-height: 1.5; }
+.aep-icon {
+  margin-bottom: 0.5rem;
+}
+.aep-icon i {
+  font-size: 1.8rem; color: var(--terracotta);
+}
+.aep-detail {
+  display: none; margin-top: 1.5rem;
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 10px; padding: 2.5rem 3rem;
+  animation: fadeUp 0.3s ease both;
+}
+.aep-detail.visible { display: block; }
+.aep-back {
+  background: none; border: none; cursor: pointer;
+  font-family: 'DM Sans', sans-serif; font-size: 0.85rem;
+  color: var(--text-muted); padding: 0; margin-bottom: 1.5rem;
+  transition: color 0.15s;
+}
+.aep-back:hover { color: var(--navy); }
+.aep-tag {
+  display: inline-block; background: var(--sage);
+  color: var(--navy); font-size: 0.78rem; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.3rem 0.9rem; border-radius: 2px; margin-bottom: 1.25rem;
+}
+.aep-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem; color: var(--navy);
+  margin-bottom: 1.25rem; line-height: 1.35; font-style: italic;
+}
+.aep-body { color: var(--text-muted); line-height: 1.75; margin-bottom: 1.75rem; }
+@media (max-width: 640px) { .aep-grid { grid-template-columns: 1fr; } .aep-detail { padding: 1.75rem; } }
   :root {
     --sage: #D9EDDF;
     --sage-dark: #b8d9c1;
@@ -525,9 +575,9 @@
     <img src="logo.png" alt="Twenty First Century Solutions logo">
   </a>
   <ul class="nav-links">
+    <li><a href="#audiences">Who We Serve</a></li>
     <li><a href="#pillars">How We Work</a></li>
     <li><a href="#communa">Communa</a></li>
-    <li><a href="#audiences">Who We Serve</a></li>
     <li><a href="#credibility">Our Story</a></li>
     <li><a href="#cta-banner" class="nav-cta">Talk to Us</a></li>
   </ul>
@@ -560,7 +610,69 @@
     </div>
   </div>
 </section>
+<!-- AUDIENCE ENTRY POINTS -->
+<section id="audiences" style="background: var(--cream); padding: 80px 5%;">
+  <div class="container">
+    <span class="section-label">Who We Serve</span>
+    <h2>Whatever your context, we understand it.</h2>
+    <p class="lead">Tell us who you are — we'll show you what's most relevant.</p>
 
+    <div class="aep-grid">
+      <button class="aep-btn" onclick="aepShow('f')">
+        <div class="aep-icon"><i class="fas fa-building"></i></div>
+        <span class="aep-btn-title">Funders &amp; Foundations</span>
+        <span class="aep-btn-sub">Strategy, grant programmes, participatory approaches</span>
+      </button>
+      <button class="aep-btn" onclick="aepShow('p')">
+        <div class="aep-icon"><i class="fas fa-building-columns"></i></div>
+        <span class="aep-btn-title">Public Sector Commissioners</span>
+        <span class="aep-btn-sub">Devolution, place-based investment, participatory budgeting</span>
+      </button>
+      <button class="aep-btn" onclick="aepShow('c')">
+        <div class="aep-icon"><i class="fas fa-handshake"></i></div>
+        <span class="aep-btn-title">Corporate Social Impact</span>
+        <span class="aep-btn-sub">ESG, community benefit obligations, corporate foundations</span>
+      </button>
+      <button class="aep-btn" onclick="aepShow('co')">
+        <div class="aep-icon"><i class="fas fa-people-group"></i></div>
+        <span class="aep-btn-title">Community Organisations</span>
+        <span class="aep-btn-sub">Accessing funding, Communa, navigating the landscape</span>
+      </button>
+    </div>
+
+    <div class="aep-detail" id="aep-f">
+      <button class="aep-back" onclick="aepHide()">← Back</button>
+      <span class="aep-tag">Funders &amp; Foundations</span>
+      <h3 class="aep-headline">From strategic review to participatory infrastructure: one partner for the full journey.</h3>
+      <p class="aep-body">Whether you're refreshing your strategy, redesigning a grant programme, navigating a governance challenge, or building community voice into your funding decisions, we work with funders at every stage. Our team has held senior roles inside the UK's major funding bodies. We understand your operating context because we've worked within it. And when you're ready to move to participatory grant-making, we've built Communa, the UK's first community-informed platform, to make it sustainable.</p>
+      <a href="#communa" class="btn-primary">Explore how we support funders →</a>
+    </div>
+
+    <div class="aep-detail" id="aep-p">
+      <button class="aep-back" onclick="aepHide()">← Back</button>
+      <span class="aep-tag">Public Sector Commissioners</span>
+      <h3 class="aep-headline">Complex problems need a partner who understands the constraints.</h3>
+      <p class="aep-body">Devolution, community wealth building, participatory budgeting, place-based investment: the ambitions are clear but the delivery is complex. You need approaches that are participatory and robust enough to satisfy scrutiny, innovative and pragmatic enough to work within procurement frameworks. We help commissioners design and deliver programmes that meet democratic accountability requirements while genuinely shifting power to communities. From initial scoping through to evaluation, we stay until it's working.</p>
+      <a href="#cta-banner" class="btn-primary">See our public sector work →</a>
+    </div>
+
+    <div class="aep-detail" id="aep-c">
+      <button class="aep-back" onclick="aepHide()">← Back</button>
+      <span class="aep-tag">Corporate Social Impact Teams</span>
+      <h3 class="aep-headline">Not sure what you need? That's exactly where we start.</h3>
+      <p class="aep-body">If your organisation has community benefit obligations, ESG commitments, or a corporate foundation that wants to do more than write cheques, we can help — even if you can't yet articulate the brief. We won't overwhelm you with sector jargon or assume you know the landscape. We'll start by understanding what you're trying to achieve, diagnose what you actually need, and then deliver it — whether that's strategy, connections, technology, or all three.</p>
+      <a href="#cta-banner" class="btn-primary">Talk to us about your challenge →</a>
+    </div>
+
+    <div class="aep-detail" id="aep-co">
+      <button class="aep-back" onclick="aepHide()">← Back</button>
+      <span class="aep-tag">Community Organisations</span>
+      <h3 class="aep-headline">Built by people like you. Owned by people like you.</h3>
+      <p class="aep-body">Communa was designed starting with communities furthest from funding: the organisations and groups that existing systems routinely overlook. It's owned by historically underserved communities, which means it's built around what actually matters when you're trying to access funding: clarity, accessibility, fairness, and a genuine voice in how decisions are made. If you're navigating the funding landscape and need support — we're here.</p>
+      <a href="#communa" class="btn-primary">Find out how we can support your organisation →</a>
+    </div>
+  </div>
+</section>
 <!-- BREADTH -->
 <section id="breadth">
   <div class="container">
@@ -709,41 +821,6 @@
   </div>
 </section>
 
-<!-- AUDIENCES -->
-<section id="audiences">
-  <div class="container">
-    <span class="section-label">Who We Serve</span>
-    <h2>Whatever your context, we understand it.</h2>
-    <p class="lead">Our team has held senior roles inside the UK's major funding bodies. We understand your operating context because we've worked within it.</p>
-    <div class="audience-grid">
-      <div class="audience-card">
-        <div class="aud-icon"><i class="fas fa-building"></i></div>
-        <h3>Funders and Foundations</h3>
-        <p>Whether you're refreshing your strategy, redesigning a grant programme, navigating a governance challenge, or building community voice into your funding decisions, we work with funders at every stage. When you're ready to move to participatory grant-making, we've built Communa to make it sustainable.</p>
-        <a href="#cta-banner" class="audience-link">Explore how we support funders →</a>
-      </div>
-      <div class="audience-card">
-        <div class="aud-icon"><i class="fas fa-building-columns"></i></div>
-        <h3>Public Sector Commissioners</h3>
-        <p>Devolution, community wealth building, participatory budgeting, place-based investment: the ambitions are clear but the delivery is complex. We help commissioners design and deliver programmes that meet democratic accountability requirements while genuinely shifting power to communities.</p>
-        <a href="#cta-banner" class="audience-link">See our public sector work →</a>
-      </div>
-      <div class="audience-card">
-        <div class="aud-icon"><i class="fas fa-handshake"></i></div>
-        <h3>Corporate Social Impact Teams</h3>
-        <p>If your organisation has community benefit obligations, ESG commitments, or a corporate foundation that wants to do more than write cheques, we can help — even if you can't yet articulate the brief. We won't overwhelm you with sector jargon or assume you know the landscape.</p>
-        <a href="#cta-banner" class="audience-link">Talk to us about your challenge →</a>
-      </div>
-      <div class="audience-card">
-        <div class="aud-icon"><i class="fas fa-people-group"></i></div>
-        <h3>Community Organisations</h3>
-        <p>Communa was designed starting with communities furthest from funding. It's owned by historically underserved communities, which means it's built around what actually matters when you're trying to access funding: clarity, accessibility, fairness, and a genuine voice in how decisions are made.</p>
-        <a href="#cta-banner" class="audience-link">Find out how we can support you →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- CREDIBILITY -->
 <section id="credibility">
   <div class="container">
@@ -773,7 +850,7 @@
     <h2>Start with the problem. We'll figure out the rest.</h2>
     <p>Whether you have a clearly defined brief or something you can't quite articulate yet, we're the right first call. Tell us what you're trying to solve.</p>
     <div class="cta-btns">
-      <a href="mailto:hello@twentyfirstcent.com" class="btn-white">Talk to us →</a>
+      <a href="mailto:info@twenty1stcent.com" class="btn-white">Talk to us →</a>
       <a href="#pillars" class="btn-outline-white">See how we work</a>
     </div>
   </div>
@@ -793,6 +870,16 @@
   </div>
   <span class="footer-copy">© 2026 Twenty First Century Solutions</span>
 </footer>
-
+<script>
+  function aepShow(id) {
+  document.querySelectorAll('.aep-detail').forEach(el => el.classList.remove('visible'));
+  var d = document.getElementById('aep-' + id);
+  d.classList.add('visible');
+  d.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+function aepHide() {
+  document.querySelectorAll('.aep-detail').forEach(el => el.classList.remove('visible'));
+}
+</script>
 </body>
 </html>
