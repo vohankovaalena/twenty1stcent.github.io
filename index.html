@@ -6,6 +6,7 @@
 <title>Twenty First Century Solutions: The Sector's Problem-Solving Partner</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <style>
   :root {
     --sage: #D9EDDF;
@@ -73,11 +74,21 @@
   /* HERO */
   .hero {
     min-height: 100vh;
-    background: var(--navy);
+    background-image: url('banner_web_webp.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
     display: flex; align-items: center;
     padding: 120px 5% 80px;
     position: relative;
     overflow: hidden;
+  }
+
+  @media (max-width: 900px) {
+    .hero { padding: 100px 3% 70px; }
+  }
+  @media (max-width: 640px) {
+    .hero { padding: 80px 2.5% 60px; }
   }
   .hero::before {
     content: '';
@@ -152,22 +163,24 @@
     display: flex; flex-direction: column; gap: 1.2rem;
   }
   .hero-stat-card {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(47, 47, 47, 0.381);
+    border: 1px solid rgba(255,255,255,0.2);
     border-radius: 8px; padding: 1.4rem 1.8rem;
     backdrop-filter: blur(10px);
   }
   .hero-stat-card h3 {
     font-family: 'Playfair Display', serif;
-    font-size: 2.2rem; color: var(--sage);
+    font-size: 2.2rem; color: var(--white);
     margin-bottom: 0.3rem;
   }
-  .hero-stat-card p { color: rgba(255,255,255,0.6); font-size: 0.88rem; }
+  .hero-stat-card p { color: var(--white); font-size: 0.88rem; }
 
   .hero-quote-card {
     background: rgba(192,108,83,0.15);
     border: 1px solid rgba(192,108,83,0.3);
     border-radius: 8px; padding: 1.4rem 1.8rem;
+  }
+  .hero-quote-card p { color: var(--white); font-size: 0.9rem; font-style: italic; line-height: 1.6; }
     border-left: 3px solid var(--terracotta);
   }
   .hero-quote-card p {
@@ -334,6 +347,11 @@
     background: var(--navy); flex-shrink: 0;
     display: flex; align-items: center; justify-content: center;
     font-size: 1rem;
+    color: var(--cream);
+  }
+  .feat-icon i {
+    font-size: 1.2rem;
+    color: inherit;
   }
   .communa-feat h4 {
     font-size: 0.88rem; font-weight: 600; color: var(--navy);
@@ -374,7 +392,11 @@
     width: 48px; height: 48px; border-radius: 8px;
     background: var(--sage); margin-bottom: 1.5rem;
     display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem; color: var(--navy);
+  }
+  .aud-icon i {
     font-size: 1.4rem;
+    color: inherit;
   }
   .audience-card h3 {
     font-family: 'Playfair Display', serif;
@@ -647,28 +669,28 @@
         <p class="lead">Communa is owned by historically underserved communities. That's not a marketing line — it's the legal and financial structure of the organisation. When you choose Communa, you're directly supporting the economic empowerment of the communities your funding is designed to serve.</p>
         <div class="communa-features">
           <div class="communa-feat">
-            <div class="feat-icon">🤖</div>
+            <div class="feat-icon"><i class="fas fa-robot"></i></div>
             <div>
               <h4>AI-Supported Eligibility Screening</h4>
               <p>Handles operational volume so community panels can focus on judgment — not administration.</p>
             </div>
           </div>
           <div class="communa-feat">
-            <div class="feat-icon">📋</div>
+            <div class="feat-icon"><i class="fas fa-file-lines"></i></div>
             <div>
               <h4>Application Analysis</h4>
               <p>Surfaces what matters to communities, not just what matters to funders.</p>
             </div>
           </div>
           <div class="communa-feat">
-            <div class="feat-icon">♿</div>
+            <div class="feat-icon"><i class="fas fa-universal-access"></i></div>
             <div>
               <h4>Inclusive Panel Support Tools</h4>
               <p>Designed for diverse participation, including accessibility features shaped by the communities who need them.</p>
             </div>
           </div>
           <div class="communa-feat">
-            <div class="feat-icon">📄</div>
+            <div class="feat-icon"><i class="fas fa-file-signature"></i></div>
             <div>
               <h4>Transparent Decision Documentation</h4>
               <p>Creates defensible records of community-led funding choices at every stage.</p>
@@ -695,25 +717,25 @@
     <p class="lead">Our team has held senior roles inside the UK's major funding bodies. We understand your operating context because we've worked within it.</p>
     <div class="audience-grid">
       <div class="audience-card">
-        <div class="aud-icon">🏛️</div>
+        <div class="aud-icon"><i class="fas fa-building"></i></div>
         <h3>Funders and Foundations</h3>
         <p>Whether you're refreshing your strategy, redesigning a grant programme, navigating a governance challenge, or building community voice into your funding decisions, we work with funders at every stage. When you're ready to move to participatory grant-making, we've built Communa to make it sustainable.</p>
         <a href="#cta-banner" class="audience-link">Explore how we support funders →</a>
       </div>
       <div class="audience-card">
-        <div class="aud-icon">🏗️</div>
+        <div class="aud-icon"><i class="fas fa-building-columns"></i></div>
         <h3>Public Sector Commissioners</h3>
         <p>Devolution, community wealth building, participatory budgeting, place-based investment: the ambitions are clear but the delivery is complex. We help commissioners design and deliver programmes that meet democratic accountability requirements while genuinely shifting power to communities.</p>
         <a href="#cta-banner" class="audience-link">See our public sector work →</a>
       </div>
       <div class="audience-card">
-        <div class="aud-icon">🤝</div>
+        <div class="aud-icon"><i class="fas fa-handshake"></i></div>
         <h3>Corporate Social Impact Teams</h3>
         <p>If your organisation has community benefit obligations, ESG commitments, or a corporate foundation that wants to do more than write cheques, we can help — even if you can't yet articulate the brief. We won't overwhelm you with sector jargon or assume you know the landscape.</p>
         <a href="#cta-banner" class="audience-link">Talk to us about your challenge →</a>
       </div>
       <div class="audience-card">
-        <div class="aud-icon">🌱</div>
+        <div class="aud-icon"><i class="fas fa-people-group"></i></div>
         <h3>Community Organisations</h3>
         <p>Communa was designed starting with communities furthest from funding. It's owned by historically underserved communities, which means it's built around what actually matters when you're trying to access funding: clarity, accessibility, fairness, and a genuine voice in how decisions are made.</p>
         <a href="#cta-banner" class="audience-link">Find out how we can support you →</a>
