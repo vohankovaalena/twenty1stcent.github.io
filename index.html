@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="icon" href="favicon.svg" />
 <style>
 
   /* AUDIENCE ENTRY POINTS */
@@ -120,6 +121,47 @@
     font-weight: 600 !important;
   }
   .nav-cta:hover { background: var(--terracotta-dark) !important; }
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+  }
+  .hamburger span {
+    width: 24px; height: 2.5px; background-color: var(--navy);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+  }
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+  }
+  @media (max-width: 900px) {
+    .hamburger { display: flex; }
+    .nav-links { display: none; }
+    .nav-links.active {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 68px;
+      left: 0;
+      right: 0;
+      background: rgba(250,248,244,0.98);
+      backdrop-filter: blur(12px);
+      padding: 1.5rem 5%;
+      gap: 1rem;
+      box-shadow: 0 4px 12px rgba(44,62,80,0.08);
+    }
+    .nav-links.active a {
+      padding: 0.75rem 0;
+      display: block;
+    }
+  }
 
   /* HERO */
   .hero {
@@ -139,6 +181,9 @@
   }
   @media (max-width: 640px) {
     .hero { padding: 80px 2.5% 60px; }
+    .hero-stat-card { padding: 1rem 1.2rem; }
+    .hero-stat-card h3 { font-size: 1.8rem; }
+    .hero-stat-card p { font-size: 0.75rem; }
   }
   .hero::before {
     content: '';
@@ -213,8 +258,8 @@
     display: flex; flex-direction: column; gap: 1.2rem;
   }
   .hero-stat-card {
-    background: rgba(47, 47, 47, 0.381);
-    border: 1px solid rgba(255,255,255,0.2);
+    background: #3d51668b;
+    border: 1px solid rgba(157, 157, 157, 0.2);
     border-radius: 8px; padding: 1.4rem 1.8rem;
     backdrop-filter: blur(10px);
   }
@@ -226,16 +271,17 @@
   .hero-stat-card p { color: var(--white); font-size: 0.88rem; }
 
   .hero-quote-card {
-    background: rgba(192,108,83,0.15);
-    border: 1px solid rgba(192,108,83,0.3);
-    border-radius: 8px; padding: 1.4rem 1.8rem;
-  }
-  .hero-quote-card p { color: var(--white); font-size: 0.9rem; font-style: italic; line-height: 1.6; }
+    background: rgba(192, 108, 83, 0.546);
+    border: 1px solid rgba(192, 108, 83, 0.523);
     border-left: 3px solid var(--terracotta);
+    border-radius: 8px; padding: 1.4rem 1.8rem;
   }
   .hero-quote-card p {
     color: rgba(255,255,255,0.75);
     font-size: 0.9rem; font-style: italic; line-height: 1.6;
+  }
+  @media (max-width: 640px) {
+    .hero-quote-card { padding: 1rem 1.2rem; }
   }
 
   /* SECTIONS */
@@ -503,14 +549,14 @@
   .cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
   .btn-white {
     background: var(--white); color: var(--terracotta);
-    padding: 0.9rem 2.2rem; border-radius: 4px;
+    padding: 1.2rem 2.8rem; border-radius: 4px;
     text-decoration: none; font-weight: 600; font-size: 0.92rem;
     transition: opacity 0.2s;
   }
   .btn-white:hover { opacity: 0.9; }
   .btn-outline-white {
     border: 2px solid rgba(255,255,255,0.5); color: var(--white);
-    padding: 0.9rem 2.2rem; border-radius: 4px;
+    padding: 1.2rem 2.8rem; border-radius: 4px;
     text-decoration: none; font-weight: 500; font-size: 0.92rem;
     transition: border-color 0.2s;
   }
@@ -581,6 +627,11 @@
     <li><a href="#credibility">Our Story</a></li>
     <li><a href="#cta-banner" class="nav-cta">Talk to Us</a></li>
   </ul>
+  <div class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -880,6 +931,23 @@
 function aepHide() {
   document.querySelectorAll('.aep-detail').forEach(el => el.classList.remove('visible'));
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
+  
+  hamburger.addEventListener('click', function() {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('active');
+  });
+  
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', function() {
+      hamburger.classList.remove('active');
+      navLinks.classList.remove('active');
+    });
+  });
+});
 </script>
 </body>
 </html>
