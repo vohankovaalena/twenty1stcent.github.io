@@ -31,6 +31,7 @@
 .aep-grid {
   display: grid; grid-template-columns: repeat(2, 1fr);
   gap: 1rem; margin: 2.5rem 0 0;
+  align-items: start;
 }
 .aep-card {
   background: #F4F6F9; border: 1px solid var(--border);
@@ -207,8 +208,8 @@
     .hero { padding: 100px 3% 70px; }
   }
   @media (max-width: 640px) {
-    .hero { padding: 80px 2.5% 60px; }
-    .hero::after { clip-path: none; height: 48px; }
+    .hero { padding: 80px 2.5% 100px; }
+    .hero::after { clip-path: none; height: 30px; }
     .hero-stat-card { padding: 1rem 1.2rem; }
     .hero-stat-card h3 { font-size: 1.8rem; }
     .hero-stat-card p { font-size: 0.75rem; }
@@ -1091,7 +1092,6 @@
       <div class="cred-card">
         <h4>Associates Model</h4>
         <p>Beyond our core team, we work with a curated network of specialists across facilitation, community development, evaluation, organisational development, and sector-specific expertise. You get the integrated approach of a single partner with the depth of a much larger network.</p>
-        <a href="associates.html" style="color:var(--terracotta-accent); font-weight:600; font-size:0.88rem; text-decoration:none; display:inline-block; margin-top:0.8rem;">Meet our associates →</a>
       </div>
       <div class="cred-card">
         <h4>Built-In Social Value</h4>
@@ -1124,7 +1124,7 @@
     <a href="associates.html">Our Associates</a>
     <a href="#communa">Communa</a>
     <a href="#credibility">Our Story</a>
-    <a href="#">Privacy</a>
+    
   </div>
   <span class="footer-copy">© 2026 Twenty First Century Solutions</span>
 </footer>
