@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Associates | Twenty First Century Solutions</title>
+<meta name="description" content="Meet the associates behind Twenty First Century Solutions — senior practitioners with decades of experience across philanthropy, social justice, grant-making and community development.">
+<link rel="canonical" href="https://twenty1stcent.com/associates.html" />
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://twenty1stcent.com/associates.html">
+<meta property="og:title" content="Our Associates | Twenty First Century Solutions">
+<meta property="og:description" content="Meet the associates behind Twenty First Century Solutions — senior practitioners with decades of experience across philanthropy, social justice, grant-making and community development.">
+<meta property="og:image" content="https://twenty1stcent.com/logo.png">
+<meta name="theme-color" content="#1A2744">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="icon" href="favicon.svg" />
+<style>
+  :root {
+    --sage: #2E7D5E;
+    --sage-dark: #1F6347;
+    --sage-light: rgba(46,125,94,0.1);
+    --navy: #1A2744;
+    --navy-light: #283a56;
+    --terracotta: #E8612A;
+    --terracotta-dark: #C94E18;
+    --terracotta-text: #C94E18;
+    --terracotta-accent: #FF9B6A;
+    --cream: #FFFFFF;
+    --text: #1A2744;
+    --text-muted: #5a6b7a;
+    --white: #ffffff;
+    --border: rgba(26,39,68,0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 68px;
+  }
+  .nav-logo {
+    display: flex; align-items: center;
+    text-decoration: none;
+  }
+  .nav-logo img {
+    height: 40px; width: auto; object-fit: contain;
+  }
+  .nav-links {
+    display: flex; gap: 2rem; list-style: none; align-items: center;
+  }
+  .nav-links a {
+    text-decoration: none; color: var(--text-muted);
+    font-size: 0.88rem; font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--navy); }
+  .nav-links a.active-link { color: var(--navy); font-weight: 600; }
+  .nav-cta {
+    background: var(--terracotta) !important;
+    color: var(--white) !important;
+    padding: 0.5rem 1.2rem;
+    border-radius: 4px;
+    font-weight: 600 !important;
+  }
+  .nav-cta:hover { background: var(--terracotta-dark) !important; }
+  .hamburger {
+    display: none; flex-direction: column; cursor: pointer; gap: 5px;
+  }
+  .hamburger span {
+    width: 24px; height: 2.5px; background-color: var(--navy);
+    border-radius: 2px; transition: all 0.3s;
+  }
+  .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(8px, 8px); }
+  .hamburger.active span:nth-child(2) { opacity: 0; }
+  .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+  @media (max-width: 900px) {
+    .hamburger { display: flex; }
+    .nav-links { display: none; }
+    .nav-links.active {
+      display: flex; flex-direction: column;
+      position: absolute; top: 68px; left: 0; right: 0;
+      background: rgba(255,255,255,0.98);
+      backdrop-filter: blur(12px);
+      padding: 1.5rem 5%; gap: 1rem;
+      box-shadow: 0 4px 12px rgba(26,39,68,0.08);
+    }
+    .nav-links.active a { padding: 0.75rem 0; display: block; }
+  }
+
+  /* PAGE HEADER */
+  .page-header {
+    background: var(--navy);
+    padding: 140px 5% 80px;
+    text-align: center;
+  }
+  .page-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  .page-header p {
+    color: rgba(255,255,255,0.7);
+    font-size: 1.08rem;
+    line-height: 1.75;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  /* ASSOCIATES */
+  .associates-section {
+    padding: 80px 5%;
+  }
+  .associates-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .associate-card {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 3rem;
+    align-items: start;
+    background: #F4F6F9;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 3rem;
+    margin-bottom: 2.5rem;
+    transition: box-shadow 0.25s;
+  }
+  .associate-card:hover {
+    box-shadow: 0 12px 40px rgba(26,39,68,0.08);
+  }
+  .associate-photo {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid var(--white);
+    box-shadow: 0 4px 20px rgba(26,39,68,0.1);
+  }
+  .associate-info h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: var(--navy);
+    margin-bottom: 1.2rem;
+    line-height: 1.3;
+  }
+  .associate-info p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+  .associate-info p:last-child {
+    margin-bottom: 0;
+  }
+  .associate-info strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+  .associate-achievements {
+    list-style: none;
+    margin-top: 0.5rem;
+  }
+  .associate-achievements li {
+    position: relative;
+    padding-left: 1.4rem;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.8;
+    margin-bottom: 0.4rem;
+  }
+  .associate-achievements li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0.7em;
+    width: 6px; height: 6px;
+    background: var(--sage);
+    border-radius: 50%;
+  }
+  .associate-achievements li strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  @media (max-width: 900px) {
+    .associate-card {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      padding: 2rem;
+    }
+    .associate-photo {
+      max-width: 240px;
+    }
+  }
+  @media (max-width: 600px) {
+    .associates-section { padding: 60px 6%; }
+    .associate-card { padding: 1.5rem; }
+    .associate-photo { max-width: 200px; }
+  }
+
+  /* CTA BANNER */
+  #cta-banner {
+    background: var(--terracotta);
+    padding: 80px 5%;
+    text-align: center;
+  }
+  #cta-banner h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.9rem, 3vw, 2.8rem);
+    color: var(--white);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+  #cta-banner p {
+    color: rgba(255,255,255,0.82); max-width: 560px;
+    margin: 0 auto 2.5rem; font-size: 1rem; line-height: 1.7;
+  }
+  .cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .btn-white {
+    background: var(--white); color: var(--terracotta-text);
+    padding: 1.2rem 2.8rem; border-radius: 4px;
+    text-decoration: none; font-weight: 600; font-size: 0.92rem;
+    transition: opacity 0.2s;
+  }
+  .btn-white:hover { opacity: 0.9; }
+  .btn-outline-white {
+    border: 2px solid rgba(255,255,255,0.5); color: var(--white);
+    padding: 1.2rem 2.8rem; border-radius: 4px;
+    text-decoration: none; font-weight: 500; font-size: 0.92rem;
+    transition: border-color 0.2s;
+  }
+  .btn-outline-white:hover { border-color: rgba(255,255,255,0.9); }
+
+  /* FOOTER */
+  footer {
+    background: #1A2744;
+    color: rgba(255,255,255,0.5);
+    padding: 3rem 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 1.5rem;
+  }
+  .footer-brand { display: flex; align-items: center; }
+  .footer-brand img { height: 35px; width: auto; object-fit: contain; }
+  .footer-links { display: flex; gap: 1.8rem; flex-wrap: wrap; }
+  .footer-links a {
+    color: rgba(255,255,255,0.45); text-decoration: none;
+    font-size: 0.82rem; transition: color 0.2s;
+  }
+  .footer-links a:hover { color: rgba(255,255,255,0.8); }
+  .footer-copy { font-size: 0.8rem; }
+
+  @media (max-width: 600px) {
+    footer { flex-direction: column; }
+    .btn-white, .btn-outline-white { padding: 1.6rem 3.2rem; font-size: 0.95rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="index.html">
+    <img src="logo.png" alt="Twenty First Century Solutions logo">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#audiences">Who We Serve</a></li>
+    <li><a href="index.html#pillars">How We Work</a></li>
+    <li><a href="associates.html" class="active-link">Our Associates</a></li>
+    <li><a href="index.html#communa">Communa</a></li>
+    <li><a href="index.html#credibility">Our Story</a></li>
+    <li><a href="index.html#cta-banner" class="nav-cta">Talk to Us</a></li>
+  </ul>
+  <div class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<section class="page-header">
+  <h1>Our Associates</h1>
+  <p>Senior practitioners with decades of experience across philanthropy, social justice, grant-making and community development. They bring the depth that makes the difference.</p>
+</section>
+
+<!-- ASSOCIATES -->
+<section class="associates-section">
+  <div class="associates-container">
+
+    <!-- Shane Ryan MBE -->
+    <div class="associate-card">
+      <img class="associate-photo" src="shane_ryan.png" alt="Shane Ryan MBE" loading="lazy">
+      <div class="associate-info">
+        <h2>Shane Ryan MBE</h2>
+        <p>Shane Ryan is <strong>Senior Advisor to the CEO at The National Lottery Community Fund</strong>, former <strong>Global Executive Director of the Avast Foundation</strong> and former <strong>Deputy Director for The National Lottery Community Fund</strong>, former <strong>multi award-winning CEO</strong>.</p>
+        <p>Shane has <strong>over 30 years' experience</strong> working across a number of sectors in a variety of leadership roles with specialist experience in <strong>regenerative philanthropy</strong>, <strong>community co-design</strong>, <strong>international development</strong> and <strong>strategic partnerships</strong>.</p>
+      </div>
+    </div>
+
+    <!-- Yvonne Campbell -->
+    <div class="associate-card">
+      <img class="associate-photo" src="Yvonne%20Campbell%20-.jpg" alt="Yvonne Campbell" loading="lazy">
+      <div class="associate-info">
+        <h2>Yvonne Campbell</h2>
+        <p>A seasoned professional with <strong>over 25 years in the social justice and grant-making sectors</strong>, with a deep understanding of the challenges facing communities and how to address them.</p>
+        <p>Has a track record in <strong>business modelling</strong>, combining <strong>financial analysis with strategic and systems thinking</strong>, and is adept at collaborating with cross-functional teams to <strong>drive positive change</strong>.</p>
+      </div>
+    </div>
+
+    <!-- Jessica Neil -->
+    <div class="associate-card">
+      <img class="associate-photo" src="jessica%20neil.jpg" alt="Jessica Neil" loading="lazy">
+      <div class="associate-info">
+        <h2>Jessica Neil</h2>
+        <p>Jess Neil is an experienced strategist with <strong>extensive cross-sector experience spanning social justice, philanthropy, and the private sector</strong>. Skilled in <strong>guiding organisations through periods of challenge, change, and growth</strong>, she applies <strong>anti-racist feminist leadership principles</strong> to design and deliver purpose-led strategies.</p>
+        <p>Guided by the belief that work should be both meaningful and joyful, Jess partners with leaders across industries to <strong>embed equity, innovation and impact</strong> at the heart of their practice.</p>
+      </div>
+    </div>
+
+    <!-- Karl Murray -->
+    <div class="associate-card">
+      <img class="associate-photo" src="karl%20murray.PNG" alt="Karl Murray" loading="lazy">
+      <div class="associate-info">
+        <h2>Karl Murray</h2>
+        <p>With <strong>over 30 years of experience</strong> in teacher training, sport development, youth and community education, and <strong>strategic management within London boroughs</strong>, he has built a strong record in <strong>organisational leadership and development</strong>.</p>
+        <p>Through <strong>FW Business Ltd</strong>, he has led projects in <strong>community-based research, evaluation, and capacity building</strong> across the UK and internationally. His work focuses on governance, strategic planning, accredited training, and impact evaluation for charities, NGOs, and social enterprises.</p>
+        <p>Key achievements include:</p>
+        <ul class="associate-achievements">
+          <li><strong>Supporting over 200 organisations</strong> through capacity assessments and development tools</li>
+          <li>Securing <strong>nearly £10 million in funding</strong> over the past five years through bid writing and sponsorships</li>
+          <li>Leading <strong>organisational transformation and programme redesign</strong> in both UK and international contexts</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section id="cta-banner">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <h2>Work with our team.</h2>
+    <p>Whether you need strategic advice, programme delivery, or a combination of both — our associates bring the depth and experience to make it happen.</p>
+    <div class="cta-btns">
+      <a href="mailto:info@twenty1stcent.com" class="btn-white">Talk to us →</a>
+      <a href="index.html#pillars" class="btn-outline-white">See how we work</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <img src="logo_white.png" alt="Twenty First Century Solutions logo">
+  </div>
+  <div class="footer-links">
+    <a href="index.html#audiences">Who We Serve</a>
+    <a href="index.html#pillars">How We Work</a>
+    <a href="associates.html">Our Associates</a>
+    <a href="index.html#communa">Communa</a>
+    <a href="index.html#credibility">Our Story</a>
+    <a href="#">Privacy</a>
+  </div>
+  <span class="footer-copy">© 2026 Twenty First Century Solutions</span>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
+  hamburger.addEventListener('click', function() {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('active');
+  });
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', function() {
+      hamburger.classList.remove('active');
+      navLinks.classList.remove('active');
+    });
+  });
+});
+</script>
+</body>
+</html>

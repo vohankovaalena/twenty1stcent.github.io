@@ -20,7 +20,7 @@
 <meta property="twitter:description" content="Social sector consulting for funders, councils & communities | Programme design, strategy & participatory grant-making technology">
 <meta property="twitter:image" content="https://twenty1stcent.com/logo.png">
 <!-- Theme color -->
-<meta name="theme-color" content="#C06C53">
+<meta name="theme-color" content="#1A2744">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -32,62 +32,72 @@
   display: grid; grid-template-columns: repeat(2, 1fr);
   gap: 1rem; margin: 2.5rem 0 0;
 }
-.aep-btn {
-  background: var(--white); border: 1px solid var(--border);
-  border-radius: 10px; padding: 1.75rem 2rem;
+.aep-card {
+  background: #F4F6F9; border: 1px solid var(--border);
+  border-radius: 10px;
   text-align: left; cursor: pointer;
-  display: flex; flex-direction: column; gap: 0.4rem;
-  transition: box-shadow 0.2s, transform 0.15s;
   font-family: 'DM Sans', sans-serif;
+  transition: box-shadow 0.25s, border-color 0.25s;
+  overflow: hidden;
 }
-.aep-btn:hover { box-shadow: 0 8px 32px rgba(44,62,80,0.1); transform: translateY(-2px); }
-.aep-btn-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--navy); }
-.aep-btn-sub { font-size: 1rem; color: var(--text-muted); line-height: 1.5; }
-.aep-icon {
-  margin-bottom: 0.5rem;
+.aep-card:hover { box-shadow: 0 8px 32px rgba(26,39,68,0.1); }
+.aep-card.open { border-color: var(--sage); }
+.aep-header {
+  padding: 1.75rem 2rem;
+  display: flex; align-items: center; gap: 1.2rem;
 }
+.aep-header-text { flex: 1; }
 .aep-icon i {
-  font-size: 1.8rem; color: var(--terracotta);
+  font-size: 1.8rem; color: var(--terracotta-text);
 }
-.aep-detail {
-  display: none; margin-top: 1.5rem;
-  background: var(--white); border: 1px solid var(--border);
-  border-radius: 10px; padding: 2.5rem 3rem;
-  animation: fadeUp 0.3s ease both;
+.aep-title { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--navy); margin-bottom: 0.25rem; }
+.aep-sub { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
+.aep-toggle {
+  font-size: 1.2rem; color: var(--text-muted);
+  transition: transform 0.3s;
+  flex-shrink: 0;
 }
-.aep-detail.visible { display: block; }
-.aep-back {
-  background: none; border: none; cursor: pointer;
-  font-family: 'DM Sans', sans-serif; font-size: 0.85rem;
-  color: var(--text-muted); padding: 0; margin-bottom: 1.5rem;
-  transition: color 0.15s;
+.aep-card.open .aep-toggle { transform: rotate(180deg); }
+.aep-expand {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
 }
-.aep-back:hover { color: var(--navy); }
+.aep-card.open .aep-expand {
+  max-height: 600px;
+}
+.aep-expand-inner {
+  padding: 0 2rem 2rem;
+  border-top: 1px solid var(--border);
+}
 .aep-tag {
-  display: inline-block; background: var(--sage);
-  color: var(--navy); font-size: 0.78rem; font-weight: 600;
+  display: inline-block; background: var(--sage-dark);
+  color: var(--white); font-size: 0.72rem; font-weight: 600;
   letter-spacing: 0.1em; text-transform: uppercase;
-  padding: 0.3rem 0.9rem; border-radius: 2px; margin-bottom: 1.25rem;
+  padding: 0.25rem 0.75rem; border-radius: 2px; margin: 1.25rem 0 0.75rem;
 }
 .aep-headline {
   font-family: 'Playfair Display', serif;
-  font-size: 1.5rem; color: var(--navy);
-  margin-bottom: 1.25rem; line-height: 1.35; font-style: italic;
+  font-size: 1.2rem; color: var(--navy);
+  margin-bottom: 1rem; line-height: 1.35; font-style: italic;
 }
-.aep-body { color: var(--text-muted); line-height: 1.75; margin-bottom: 1.75rem; }
-@media (max-width: 640px) { .aep-grid { grid-template-columns: 1fr; } .aep-detail { padding: 1.75rem; } }
+.aep-body { color: var(--text-muted); line-height: 1.75; margin-bottom: 1.25rem; font-size: 0.93rem; }
+@media (max-width: 640px) { .aep-grid { grid-template-columns: 1fr; } .aep-expand-inner { padding: 0 1.5rem 1.5rem; } }
   :root {
-    --sage: #D9EDDF;
-    --sage-dark: #b8d9c1;
-    --navy: #2C3E50;
-    --navy-light: #3d5166;
-    --terracotta: #C06C53;
-    --terracotta-dark: #a55843;
-    --cream: #FAF8F4;
-    --text: #1a2530;
+    --sage: #2E7D5E;
+    --sage-dark: #1F6347;
+    --sage-light: rgba(46,125,94,0.1);
+    --navy: #1A2744;
+    --navy-light: #283a56;
+    --terracotta: #E8612A;
+    --terracotta-dark: #C94E18;
+    --terracotta-text: #C94E18;
+    --terracotta-accent: #FF9B6A;
+    --cream: #FFFFFF;
+    --text: #1A2744;
     --text-muted: #5a6b7a;
     --white: #ffffff;
-    --border: rgba(44,62,80,0.12);
+    --border: rgba(26,39,68,0.12);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -105,7 +115,7 @@
   /* NAV */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: rgba(250,248,244,0.95);
+    background: rgba(255,255,255,0.95);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
     padding: 0 5%;
@@ -168,11 +178,11 @@
       top: 68px;
       left: 0;
       right: 0;
-      background: rgba(250,248,244,0.98);
+      background: rgba(255,255,255,0.98);
       backdrop-filter: blur(12px);
       padding: 1.5rem 5%;
       gap: 1rem;
-      box-shadow: 0 4px 12px rgba(44,62,80,0.08);
+      box-shadow: 0 4px 12px rgba(26,39,68,0.08);
     }
     .nav-links.active a {
       padding: 0.75rem 0;
@@ -207,7 +217,7 @@
     content: '';
     position: absolute; top: 0; right: 0;
     width: 55%; height: 100%;
-    background: linear-gradient(135deg, transparent 30%, rgba(217,237,223,0.06) 100%);
+    background: linear-gradient(135deg, transparent 30%, rgba(46,125,94,0.06) 100%);
     pointer-events: none;
   }
   .hero::after {
@@ -225,9 +235,9 @@
   }
   .hero-label {
     display: inline-block;
-    background: rgba(217,237,223,0.15);
-    border: 1px solid rgba(217,237,223,0.3);
-    color: var(--sage);
+    background: rgba(255,155,106,0.15);
+    border: 1px solid rgba(255,155,106,0.3);
+    color: var(--terracotta-accent);
     font-size: 0.78rem; font-weight: 600;
     letter-spacing: 0.12em; text-transform: uppercase;
     padding: 0.4rem 1rem; border-radius: 2px;
@@ -276,7 +286,7 @@
     display: flex; flex-direction: column; gap: 1.2rem;
   }
   .hero-stat-card {
-    background: #3d51668b;
+    background: rgba(26,39,68,0.55);
     border: 1px solid rgba(157, 157, 157, 0.2);
     border-radius: 8px; padding: 1.4rem 1.8rem;
     backdrop-filter: blur(10px);
@@ -289,13 +299,13 @@
   .hero-stat-card p { color: var(--white); font-size: 0.88rem; }
 
   .hero-quote-card {
-    background: rgba(192, 108, 83, 0.546);
-    border: 1px solid rgba(192, 108, 83, 0.523);
+    background: rgba(232, 97, 42, 0.55);
+    border: 1px solid rgba(232, 97, 42, 0.52);
     border-left: 3px solid var(--terracotta);
     border-radius: 8px; padding: 1.4rem 1.8rem;
   }
   .hero-quote-card p {
-    color: rgba(255,255,255,0.75);
+    color: var(--white);
     font-size: 0.9rem; font-style: italic; line-height: 1.6;
   }
   @media (max-width: 640px) {
@@ -308,7 +318,7 @@
 
   .section-label {
     display: inline-block;
-    color: var(--terracotta);
+    color: var(--terracotta-text);
     font-size: 0.78rem; font-weight: 600;
     letter-spacing: 0.12em; text-transform: uppercase;
     margin-bottom: 1rem;
@@ -342,8 +352,8 @@
     display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 2rem;
   }
   .tag {
-    background: var(--sage);
-    color: var(--navy);
+    background: var(--sage-dark);
+    color: var(--white);
     font-size: 0.8rem; font-weight: 500;
     padding: 0.4rem 0.9rem; border-radius: 2px;
   }
@@ -356,9 +366,9 @@
   #gap h2 { color: var(--white); }
   #gap .lead { color: rgba(255,255,255,0.7); max-width: 800px; }
   .gap-highlight {
-    background: rgba(217,237,223,0.08);
-    border: 1px solid rgba(217,237,223,0.2);
-    border-left: 3px solid var(--sage);
+    background: rgba(255,155,106,0.08);
+    border: 1px solid rgba(255,155,106,0.2);
+    border-left: 3px solid var(--terracotta-accent);
     border-radius: 6px;
     padding: 2rem 2.5rem;
     margin-top: 3rem;
@@ -366,7 +376,7 @@
   .gap-highlight p {
     color: rgba(255,255,255,0.8); line-height: 1.75; font-size: 0.97rem;
   }
-  .gap-highlight strong { color: var(--sage); }
+  .gap-highlight strong { color: var(--terracotta-accent); }
 
   /* PILLARS */
   #pillars { background: var(--cream); }
@@ -379,7 +389,7 @@
     gap: 2rem;
   }
   .pillar-card {
-    background: var(--white);
+    background: #F4F6F9;
     border: 1px solid var(--border);
     border-radius: 10px;
     padding: 2.5rem;
@@ -395,7 +405,7 @@
     transition: transform 0.3s;
   }
   .pillar-card:hover::before { transform: scaleX(1); }
-  .pillar-card:hover { box-shadow: 0 16px 48px rgba(44,62,80,0.1); transform: translateY(-3px); }
+  .pillar-card:hover { box-shadow: 0 16px 48px rgba(26,39,68,0.1); transform: translateY(-3px); }
 
   .pillar-number {
     font-family: 'Playfair Display', serif;
@@ -413,15 +423,15 @@
     margin-bottom: 1.2rem;
   }
   .pillar-scenario {
-    background: var(--sage);
+    background: var(--sage-light);
     border-radius: 6px; padding: 1.2rem;
     font-style: italic; font-size: 0.85rem;
     color: var(--navy); line-height: 1.6;
-    border-left: 2px solid var(--navy);
+    border-left: 2px solid var(--sage);
     opacity: 0.85;
   }
   .pillar-link {
-    color: var(--terracotta);
+    color: var(--terracotta-text);
     font-weight: 600; font-size: 0.88rem;
     text-decoration: none;
     display: inline-flex; align-items: center; gap: 0.4rem;
@@ -434,6 +444,8 @@
   #communa {
     background: var(--sage);
   }
+  #communa h2 { color: var(--white); }
+  #communa > .container .lead { color: rgba(255,255,255,0.85); }
   .communa-grid {
     display: grid; grid-template-columns: 1fr 1fr;
     gap: 5rem; align-items: start;
@@ -441,7 +453,7 @@
   .communa-badge {
     display: inline-block;
     background: var(--navy);
-    color: var(--sage);
+    color: var(--terracotta-accent);
     font-size: 0.78rem; font-weight: 600;
     letter-spacing: 0.1em; text-transform: uppercase;
     padding: 0.4rem 1rem; border-radius: 2px;
@@ -451,8 +463,8 @@
     display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem;
   }
   .communa-feat {
-    background: rgba(255,255,255,0.55);
-    border: 1px solid rgba(44,62,80,0.1);
+    background: rgba(255,255,255,0.82);
+    border: 1px solid rgba(26,39,68,0.1);
     border-radius: 6px; padding: 1.2rem 1.5rem;
     display: flex; gap: 1rem; align-items: flex-start;
   }
@@ -480,7 +492,7 @@
   }
   .ownership-box h3 {
     font-family: 'Playfair Display', serif;
-    font-size: 1.4rem; color: var(--sage);
+    font-size: 1.4rem; color: var(--terracotta-accent);
     margin-bottom: 1rem;
   }
   .ownership-box p {
@@ -496,17 +508,17 @@
     gap: 2rem; margin-top: 3rem;
   }
   .audience-card {
-    background: var(--white);
+    background: #F4F6F9;
     border: 1px solid var(--border);
     border-radius: 10px; padding: 2.5rem;
     transition: box-shadow 0.25s;
   }
-  .audience-card:hover { box-shadow: 0 12px 40px rgba(44,62,80,0.08); }
+  .audience-card:hover { box-shadow: 0 12px 40px rgba(26,39,68,0.08); }
   .aud-icon {
     width: 48px; height: 48px; border-radius: 8px;
     background: var(--sage); margin-bottom: 1.5rem;
     display: flex; align-items: center; justify-content: center;
-    font-size: 1.4rem; color: var(--navy);
+    font-size: 1.4rem; color: var(--white);
   }
   .aud-icon i {
     font-size: 1.4rem;
@@ -522,7 +534,7 @@
     margin-bottom: 1.5rem;
   }
   .audience-link {
-    color: var(--terracotta); font-weight: 600; font-size: 0.88rem;
+    color: var(--terracotta-text); font-weight: 600; font-size: 0.88rem;
     text-decoration: none;
     transition: opacity 0.2s;
   }
@@ -532,6 +544,23 @@
   #credibility {
     background: var(--navy);
     color: var(--white);
+    position: relative;
+    overflow: hidden;
+    background-image: url('shane_meeting.PNG');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+  }
+  #credibility::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(26,39,68,0.88);
+    pointer-events: none;
+    z-index: 0;
+  }
+  #credibility > .container {
+    position: relative;
+    z-index: 1;
   }
   #credibility h2 { color: var(--white); }
   #credibility .lead { color: var(--white); }
@@ -546,7 +575,7 @@
   }
   .cred-card h4 {
     font-family: 'Playfair Display', serif;
-    font-size: 1.1rem; color: var(--sage);
+    font-size: 1.1rem; color: var(--terracotta-accent);
     margin-bottom: 0.8rem;
   }
   .cred-card p {
@@ -566,7 +595,7 @@
   }
   .cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
   .btn-white {
-    background: var(--white); color: var(--terracotta);
+    background: var(--white); color: var(--terracotta-text);
     padding: 1.2rem 2.8rem; border-radius: 4px;
     text-decoration: none; font-weight: 600; font-size: 0.92rem;
     transition: opacity 0.2s;
@@ -582,7 +611,7 @@
 
   /* FOOTER */
   footer {
-    background: #1a2530;
+    background: #1A2744;
     color: rgba(255,255,255,0.5);
     padding: 3rem 5%;
     display: flex; align-items: center; justify-content: space-between;
@@ -773,6 +802,7 @@
   <ul class="nav-links">
     <li><a href="#audiences">Who We Serve</a></li>
     <li><a href="#pillars">How We Work</a></li>
+    <li><a href="associates.html">Our Associates</a></li>
     <li><a href="#communa">Communa</a></li>
     <li><a href="#credibility">Our Story</a></li>
     <li><a href="#cta-banner" class="nav-cta">Talk to Us</a></li>
@@ -798,8 +828,8 @@
     </div>
     <div class="hero-right">
       <div class="hero-stat-card">
-        <h3>Three</h3>
-        <p>Integrated capabilities: Technology, Strategy and Delivery, and Connections — working together or independently for your challenge.</p>
+        <h3>Four</h3>
+        <p>Audiences we serve: funders, public sector commissioners, corporate social impact teams, and community organisations — each with tailored support.</p>
       </div>
       <div class="hero-stat-card">
         <h3>7,500+</h3>
@@ -819,58 +849,83 @@
     <p class="lead">Tell us who you are — we'll show you what's most relevant.</p>
 
     <div class="aep-grid">
-      <button class="aep-btn" onclick="aepShow('f')">
-        <div class="aep-icon"><i class="fas fa-building"></i></div>
-        <span class="aep-btn-title">Funders &amp; Foundations</span>
-        <span class="aep-btn-sub">Foundation strategy, grant programme design, participatory grant-making</span>
-      </button>
-      <button class="aep-btn" onclick="aepShow('p')">
-        <div class="aep-icon"><i class="fas fa-building-columns"></i></div>
-        <span class="aep-btn-title">Public Sector Commissioners</span>
-        <span class="aep-btn-sub">Participatory budgeting, place-based investment, council commissioning</span>
-      </button>
-      <button class="aep-btn" onclick="aepShow('c')">
-        <div class="aep-icon"><i class="fas fa-handshake"></i></div>
-        <span class="aep-btn-title">Corporate Social Impact</span>
-        <span class="aep-btn-sub">Corporate social responsibility, ESG community programs, corporate foundations</span>
-      </button>
-      <button class="aep-btn" onclick="aepShow('co')">
-        <div class="aep-icon"><i class="fas fa-people-group"></i></div>
-        <span class="aep-btn-title">Community Organisations</span>
-        <span class="aep-btn-sub">Funding for nonprofits, accessible funding, community organization grants</span>
-      </button>
-    </div>
 
-    <div class="aep-detail" id="aep-f">
-      <button class="aep-back" onclick="aepHide()">← Back</button>
-      <span class="aep-tag">Funders &amp; Foundations</span>
-      <h3 class="aep-headline">From strategic review to participatory infrastructure: one partner for the full journey.</h3>
-      <p class="aep-body">Whether you're refreshing your strategy, redesigning a grant programme, navigating a governance challenge, or building community voice into your funding decisions, we work with funders at every stage. Our team has held senior roles inside the UK's major funding bodies. We understand your operating context because we've worked within it. And when you're ready to move to participatory grant-making, we've built Communa, the UK's first community-informed platform, to make it sustainable.</p>
-      <a href="#communa" class="btn-primary">Explore how we support funders →</a>
-    </div>
+      <div class="aep-card" onclick="aepToggle(this)">
+        <div class="aep-header">
+          <div class="aep-icon"><i class="fas fa-building"></i></div>
+          <div class="aep-header-text">
+            <div class="aep-title">Funders &amp; Foundations</div>
+            <div class="aep-sub">Foundation strategy, grant programme design, participatory grant-making</div>
+          </div>
+          <span class="aep-toggle"><i class="fas fa-chevron-down"></i></span>
+        </div>
+        <div class="aep-expand">
+          <div class="aep-expand-inner">
+            <span class="aep-tag">Funders &amp; Foundations</span>
+            <h3 class="aep-headline">From strategic review to participatory infrastructure: one partner for the full journey.</h3>
+            <p class="aep-body">Whether you're refreshing your strategy, redesigning a grant programme, navigating a governance challenge, or building community voice into your funding decisions, we work with funders at every stage. Our team has held senior roles inside the UK's major funding bodies. We understand your operating context because we've worked within it. And when you're ready to move to participatory grant-making, we've built Communa, the UK's first community-informed platform, to make it sustainable.</p>
+            <a href="#communa" class="btn-primary">Explore how we support funders →</a>
+          </div>
+        </div>
+      </div>
 
-    <div class="aep-detail" id="aep-p">
-      <button class="aep-back" onclick="aepHide()">← Back</button>
-      <span class="aep-tag">Public Sector Commissioners</span>
-      <h3 class="aep-headline">Complex problems need a partner who understands the constraints.</h3>
-      <p class="aep-body">Devolution, community wealth building, participatory budgeting, place-based investment: the ambitions are clear but the delivery is complex. You need approaches that are participatory and robust enough to satisfy scrutiny, innovative and pragmatic enough to work within procurement frameworks. We help commissioners design and deliver programmes that meet democratic accountability requirements while genuinely shifting power to communities. From initial scoping through to evaluation, we stay until it's working.</p>
-      <a href="#cta-banner" class="btn-primary">See our public sector work →</a>
-    </div>
+      <div class="aep-card" onclick="aepToggle(this)">
+        <div class="aep-header">
+          <div class="aep-icon"><i class="fas fa-building-columns"></i></div>
+          <div class="aep-header-text">
+            <div class="aep-title">Public Sector Commissioners</div>
+            <div class="aep-sub">Participatory budgeting, place-based investment, council commissioning</div>
+          </div>
+          <span class="aep-toggle"><i class="fas fa-chevron-down"></i></span>
+        </div>
+        <div class="aep-expand">
+          <div class="aep-expand-inner">
+            <span class="aep-tag">Public Sector Commissioners</span>
+            <h3 class="aep-headline">Complex problems need a partner who understands the constraints.</h3>
+            <p class="aep-body">Devolution, community wealth building, participatory budgeting, place-based investment: the ambitions are clear but the delivery is complex. You need approaches that are participatory and robust enough to satisfy scrutiny, innovative and pragmatic enough to work within procurement frameworks. We help commissioners design and deliver programmes that meet democratic accountability requirements while genuinely shifting power to communities. From initial scoping through to evaluation, we stay until it's working.</p>
+            <a href="#cta-banner" class="btn-primary">See our public sector work →</a>
+          </div>
+        </div>
+      </div>
 
-    <div class="aep-detail" id="aep-c">
-      <button class="aep-back" onclick="aepHide()">← Back</button>
-      <span class="aep-tag">Corporate Social Impact Teams</span>
-      <h3 class="aep-headline">Not sure what you need? That's exactly where we start.</h3>
-      <p class="aep-body">If your organisation has community benefit obligations, ESG commitments, or a corporate foundation that wants to do more than write cheques, we can help — even if you can't yet articulate the brief. We won't overwhelm you with sector jargon or assume you know the landscape. We'll start by understanding what you're trying to achieve, diagnose what you actually need, and then deliver it — whether that's strategy, connections, technology, or all three.</p>
-      <a href="#cta-banner" class="btn-primary">Talk to us about your challenge →</a>
-    </div>
+      <div class="aep-card" onclick="aepToggle(this)">
+        <div class="aep-header">
+          <div class="aep-icon"><i class="fas fa-handshake"></i></div>
+          <div class="aep-header-text">
+            <div class="aep-title">Corporate Social Impact</div>
+            <div class="aep-sub">Corporate social responsibility, ESG community programs, corporate foundations</div>
+          </div>
+          <span class="aep-toggle"><i class="fas fa-chevron-down"></i></span>
+        </div>
+        <div class="aep-expand">
+          <div class="aep-expand-inner">
+            <span class="aep-tag">Corporate Social Impact Teams</span>
+            <h3 class="aep-headline">Not sure what you need? That's exactly where we start.</h3>
+            <p class="aep-body">If your organisation has community benefit obligations, ESG commitments, or a corporate foundation that wants to do more than write cheques, we can help — even if you can't yet articulate the brief. We won't overwhelm you with sector jargon or assume you know the landscape. We'll start by understanding what you're trying to achieve, diagnose what you actually need, and then deliver it — whether that's strategy, connections, technology, or all three.</p>
+            <a href="#cta-banner" class="btn-primary">Talk to us about your challenge →</a>
+          </div>
+        </div>
+      </div>
 
-    <div class="aep-detail" id="aep-co">
-      <button class="aep-back" onclick="aepHide()">← Back</button>
-      <span class="aep-tag">Community Organisations</span>
-      <h3 class="aep-headline">Built by people like you. Owned by people like you.</h3>
-      <p class="aep-body">Communa was designed starting with communities furthest from funding: the organisations and groups that existing systems routinely overlook. It's owned by historically underserved communities, which means it's built around what actually matters when you're trying to access funding: clarity, accessibility, fairness, and a genuine voice in how decisions are made. If you're navigating the funding landscape and need support — we're here.</p>
-      <a href="#communa" class="btn-primary">Find out how we can support your organisation →</a>
+      <div class="aep-card" onclick="aepToggle(this)">
+        <div class="aep-header">
+          <div class="aep-icon"><i class="fas fa-people-group"></i></div>
+          <div class="aep-header-text">
+            <div class="aep-title">Community Organisations</div>
+            <div class="aep-sub">Funding for nonprofits, accessible funding, community organization grants</div>
+          </div>
+          <span class="aep-toggle"><i class="fas fa-chevron-down"></i></span>
+        </div>
+        <div class="aep-expand">
+          <div class="aep-expand-inner">
+            <span class="aep-tag">Community Organisations</span>
+            <h3 class="aep-headline">Built by people like you. Owned by people like you.</h3>
+            <p class="aep-body">Communa was designed starting with communities furthest from funding: the organisations and groups that existing systems routinely overlook. It's owned by historically underserved communities, which means it's built around what actually matters when you're trying to access funding: clarity, accessibility, fairness, and a genuine voice in how decisions are made. If you're navigating the funding landscape and need support — we're here.</p>
+            <a href="#communa" class="btn-primary">Find out how we can support your organisation →</a>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -915,7 +970,7 @@
 <!-- INFRASTRUCTURE GAP -->
 <section id="gap">
   <div class="container">
-    <span class="section-label" style="color:var(--sage);">The Infrastructure Gap</span>
+    <span class="section-label" style="color:var(--terracotta-accent);">The Infrastructure Gap</span>
     <h2>And in participatory grant-making, we've built something nobody else has.</h2>
     <p class="lead">Participatory grant-making is no longer a fringe idea. Foundations across the UK are committing to community voice in their funding decisions. But the tools haven't kept up with the ambition.</p>
     <div class="gap-highlight">
@@ -1025,9 +1080,9 @@
 <!-- CREDIBILITY -->
 <section id="credibility">
   <div class="container">
-    <span class="section-label" style="color:var(--sage);">Our Story</span>
+    <span class="section-label" style="color:var(--terracotta-accent);">Our Story</span>
     <h2>Built from inside the sector. Owned by the communities it serves.</h2>
-    <p class="lead">Twenty First Century Solutions was founded by practitioners who've spent their careers inside the UK's funding infrastructure: at The National Lottery Community Fund, at community foundations, and in the community organisations that depend on funding decisions being made well. When we say we understand your operating context, we mean we've sat in your chair.</p>
+    <p class="lead">Twenty First Century Solutions was founded by practitioners who've spent their careers inside the UK's funding infrastructure: at public funding bodies, at community foundations, and in the community organisations that depend on funding decisions being made well. When we say we understand your operating context, we mean we've sat in your chair.</p>
     <div class="cred-grid">
       <div class="cred-card">
         <h4>Sector Insiders</h4>
@@ -1036,6 +1091,7 @@
       <div class="cred-card">
         <h4>Associates Model</h4>
         <p>Beyond our core team, we work with a curated network of specialists across facilitation, community development, evaluation, organisational development, and sector-specific expertise. You get the integrated approach of a single partner with the depth of a much larger network.</p>
+        <a href="associates.html" style="color:var(--terracotta-accent); font-weight:600; font-size:0.88rem; text-decoration:none; display:inline-block; margin-top:0.8rem;">Meet our associates →</a>
       </div>
       <div class="cred-card">
         <h4>Built-In Social Value</h4>
@@ -1065,6 +1121,7 @@
   <div class="footer-links">
     <a href="#audiences">Who We Serve</a>
     <a href="#pillars">How We Work</a>
+    <a href="associates.html">Our Associates</a>
     <a href="#communa">Communa</a>
     <a href="#credibility">Our Story</a>
     <a href="#">Privacy</a>
@@ -1072,14 +1129,10 @@
   <span class="footer-copy">© 2026 Twenty First Century Solutions</span>
 </footer>
 <script>
-  function aepShow(id) {
-  document.querySelectorAll('.aep-detail').forEach(el => el.classList.remove('visible'));
-  var d = document.getElementById('aep-' + id);
-  d.classList.add('visible');
-  d.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-}
-function aepHide() {
-  document.querySelectorAll('.aep-detail').forEach(el => el.classList.remove('visible'));
+function aepToggle(card) {
+  var wasOpen = card.classList.contains('open');
+  document.querySelectorAll('.aep-card.open').forEach(function(c) { c.classList.remove('open'); });
+  if (!wasOpen) card.classList.add('open');
 }
 
 document.addEventListener('DOMContentLoaded', function() {
